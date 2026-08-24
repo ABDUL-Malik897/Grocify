@@ -120,8 +120,7 @@ function App() {
                                         : "text-gray-600"
                                 }
                             >
-                                Your groceries are carefully prepared
-                                for delivery.
+                                Your groceries are carefully prepared for delivery.
                             </p>
                         </div>
                         <div
@@ -146,8 +145,7 @@ function App() {
                                         : "text-gray-600"
                                 }
                             >
-                                Get fresh groceries delivered to your
-                                doorstep.
+                                Get fresh groceries delivered to your doorstep.
                             </p>
                         </div>
                     </div>
@@ -166,7 +164,7 @@ function App() {
                         <p className="text-orange-500 font-semibold mb-3">
                             OUR PRODUCTS
                         </p>
-                      <h2 className="text-3xl sm:text-4xl font-bold">
+                        <h2 className="text-3xl sm:text-4xl font-bold">
                             Fresh Products Coming Your Way
                         </h2>
                         <p
@@ -202,8 +200,7 @@ function App() {
                                         : "text-gray-600"
                                 }
                             >
-                                Fresh and delicious fruits selected
-                                for your everyday needs.
+                                Fresh and delicious fruits selected for your everyday needs.
                             </p>
                         </div>
                         <div
@@ -253,8 +250,7 @@ function App() {
                                         : "text-gray-600"
                                 }
                             >
-                                Healthy and natural choices for
-                                your lifestyle.
+                                Healthy and natural choices for your lifestyle.
                             </p>
                         </div>
                     </div>
