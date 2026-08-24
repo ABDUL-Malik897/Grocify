@@ -32,6 +32,9 @@ The main goal of this project was to recreate a modern grocery website using Rea
 
 ## Github Link
 
+    https://github.com/ABDUL-Malik897/Grocify.git
 
 
 ## Live Link
+
+    https://grocify-tau.vercel.app
