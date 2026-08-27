@@ -1,27 +1,27 @@
 import { useState } from "react"
-import {
-    Search,
-    Heart,
-    ShoppingCart,
-    Menu,
-    X,
-    Sun,
-    Moon
-} from "lucide-react"
-
 
 function Navbar({ darkMode, setDarkMode }) {
 
     const [search, setSearch] = useState("")
     const [menuOpen, setMenuOpen] = useState(false)
+    const [searchError, setSearchError] = useState("")
 
     const handleSearch = (event) => {
         event.preventDefault()
-        console.log(search)
+        if (search.trim() === "") {
+            setSearchError("Please enter something to search")
+            return
+        }
+        setSearchError("")
+        console.log("Searching for:", search)
     }
 
     const toggleTheme = () => {
-        setDarkMode(!darkMode)
+        setDarkMode((currentMode) => !currentMode)
+    }
+
+    const toggleMenu = () => {
+        setMenuOpen((isOpen) => !isOpen)
     }
 
     return (
@@ -75,51 +75,64 @@ function Navbar({ darkMode, setDarkMode }) {
                                 type="text"
                                 placeholder="Search..."
                                 value={search}
-                                onChange={(event) =>
+                                onChange={(event) => {
                                     setSearch(event.target.value)
-                                }
+                                    setSearchError('')
+                                }}
                                 className="w-36 px-4 py-2 outline-none bg-transparent"
+                                required
                             />
                             <button
                                 type="submit"
+                                aria-label="Search"
                                 className="p-2 text-orange-500 hover:bg-orange-50 transition"
                             >
-                                <Search size={20} />
+                                <ion-icon name="search"></ion-icon>
                             </button>
                         </form>
+                        {searchError && (
+                            <p className="absolute mt-12 text-xs text-red-500">
+                                {searchError}
+                            </p>
+                        )}
                         <button
                             type="button"
+                            aria-label="Wishlist"
                             className="p-2 hover:text-orange-500 transition"
                         >
-                            <Heart size={21} />
+                            <ion-icon name="heart"></ion-icon>
                         </button>
                         <button
                             type="button"
+                            aria-label="Shopping cart"
                             className="p-2 hover:text-orange-500 transition"
                         >
-                            <ShoppingCart size={21} />
+                            <ion-icon name="cart"></ion-icon>
                         </button>
                         <button
                             type="button"
                             onClick={toggleTheme}
+                            aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
                             className="p-2 hover:text-orange-500 transition"
                         >
                             {darkMode ? (
-                                <Sun size={21} />
+                                <ion-icon name="sunny"></ion-icon>
                             ) : (
-                                <Moon size={21} />
+                                <ion-icon name="moon"></ion-icon>
                             )}
                         </button>
                     </div>
                     <button
                         type="button"
-                        onClick={() => setMenuOpen(!menuOpen)}
+                        onClick={toggleMenu}
+                        aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+                        aria-expanded={menuOpen}
                         className="lg:hidden p-2 hover:text-orange-500 transition"
                     >
                         {menuOpen ? (
-                            <X size={26} />
+                            'X'
                         ) : (
-                            <Menu size={26} />
+                            <ion-icon name="menu"></ion-icon>
                         )}
                     </button>
                 </div>
@@ -160,41 +173,52 @@ function Navbar({ darkMode, setDarkMode }) {
                             <input
                                 type="text"
                                 placeholder="Search..."
+                                aria-label="Search groceries"
                                 value={search}
-                                onChange={(event) =>
+                                onChange={(event) => {
                                     setSearch(event.target.value)
-                                }
+                                    setSearchError('')
+                                }}
                                 className="flex-1 px-4 py-2 outline-none bg-transparent"
+                                required
                             />
                             <button
                                 type="submit"
                                 className="p-2 text-orange-500"
                             >
-                                <Search size={20} />
+                                <ion-icon name="search"></ion-icon>
                             </button>
                         </form>
+                        {searchError && (
+                            <p className="absolute mt-12 text-xs text-red-500">
+                                {searchError}
+                            </p>
+                        )}
                         <div className="flex items-center gap-4">
                             <button
                                 type="button"
+                                aria-label="Open wishlist"
                                 className="hover:text-orange-500"
                             >
-                                <Heart size={21} />
+                                <ion-icon name="heart"></ion-icon>
                             </button>
                             <button
                                 type="button"
+                                aria-label="Open shopping cart"
                                 className="hover:text-orange-500"
                             >
-                                <ShoppingCart size={21} />
+                                <ion-icon name="cart"></ion-icon>
                             </button>
                             <button
                                 type="button"
                                 onClick={toggleTheme}
                                 className="hover:text-orange-500"
+                                aria-label={darkMode ? "Switch to light mode" : "Switch to dark mode"}
                             >
                                 {darkMode ? (
-                                    <Sun size={21} />
+                                    <ion-icon name="sunny"></ion-icon>
                                 ) : (
-                                    <Moon size={21} />
+                                    <ion-icon name="moon"></ion-icon>
                                 )}
                             </button>
                         </div>

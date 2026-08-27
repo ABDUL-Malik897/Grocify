@@ -1,20 +1,37 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
-import { ShoppingCart, Package, Truck, Apple, Carrot, Leaf } from "lucide-react"
 
 function App() {
 
     const [darkMode, setDarkMode] = useState(false)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false)
+        }, 700)
+
+        return () => clearTimeout(timer)
+    }, [])
 
     return (
         <div
-            className={
-                darkMode
-                    ? "min-h-screen bg-gray-900 text-white"
-                    : "min-h-screen bg-white text-gray-900"
+            className={ darkMode
+                ? "min-h-screen bg-gray-900 text-white"
+                : "min-h-screen bg-white text-gray-900"
             }
         >
+            {loading && (
+                <div className="fixed inset-0 z-100 flex items-center justify-center bg-white">
+                    <div className="text-center">
+                        <div className="w-10 h-10 mx-auto rounded-full border-4 border-orange-200 border-t-orange-500 animate-spin"></div>
+                        <p className="mt-4 font-semibold text-gray-700">
+                            Loading Grocify...
+                        </p>
+                    </div>
+                </div>
+            )}
             <Navbar
                 darkMode={darkMode}
                 setDarkMode={setDarkMode}
@@ -42,7 +59,7 @@ function App() {
                                 : "text-gray-600"
                         }`}
                     >
-                        Grocify makes it easy to discover fresh, high-quality fruits and vegetables for your everyday needs. We focus on quality,  freshness and simple grocery shopping.
+                        Grocify makes it easy to discover fresh, high-quality fruits and vegetables for your everyday needs. We focus on quality, freshness and simple grocery shopping.
                     </p>
                 </div>
             </section>
@@ -82,7 +99,7 @@ function App() {
                         >
                             <div className="flex justify-center mb-5">
                                 <div className="p-4 rounded-full bg-orange-500 text-white">
-                                    <ShoppingCart size={28} />
+                                    <ion-icon name="cart"></ion-icon>
                                 </div>
                             </div>
                             <h3 className="text-xl font-semibold mb-3">
@@ -107,7 +124,7 @@ function App() {
                         >
                             <div className="flex justify-center mb-5">
                                 <div className="p-4 rounded-full bg-orange-500 text-white">
-                                    <Package size={28} />
+                                    <ion-icon name="cube"></ion-icon>
                                 </div>
                             </div>
                             <h3 className="text-xl font-semibold mb-3">
@@ -132,7 +149,7 @@ function App() {
                         >
                             <div className="flex justify-center mb-5">
                                 <div className="p-4 rounded-full bg-orange-500 text-white">
-                                    <Truck size={28} />
+                                    <ion-icon name="car"></ion-icon>
                                 </div>
                             </div>
                             <h3 className="text-xl font-semibold mb-3">
@@ -187,7 +204,7 @@ function App() {
                         >
                             <div className="flex justify-center mb-5">
                                 <div className="p-4 rounded-full bg-orange-100 text-orange-500">
-                                    <Apple size={32} />
+                                    <ion-icon name="nutrition"></ion-icon>
                                 </div>
                             </div>
                             <h3 className="text-xl font-semibold mb-2">
@@ -212,7 +229,7 @@ function App() {
                         >
                             <div className="flex justify-center mb-5">
                                 <div className="p-4 rounded-full bg-orange-100 text-orange-500">
-                                    <Carrot size={32} />
+                                    <ion-icon name="logo-apple"></ion-icon>
                                 </div>
                             </div>
                             <h3 className="text-xl font-semibold mb-2">
@@ -237,7 +254,7 @@ function App() {
                         >
                             <div className="flex justify-center mb-5">
                                 <div className="p-4 rounded-full bg-orange-100 text-orange-500">
-                                    <Leaf size={32} />
+                                    <ion-icon name="leaf"></ion-icon>
                                 </div>
                             </div>
                             <h3 className="text-xl font-semibold mb-2">
@@ -299,7 +316,7 @@ function App() {
                 }`}
             >
                 <p>
-                    © 2026 Grocify Website. All rights reserved.
+                    &copy; 2026 Grocify Website. All rights reserved.
                 </p>
             </footer>
         </div>

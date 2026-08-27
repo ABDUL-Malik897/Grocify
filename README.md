@@ -1,34 +1,68 @@
 # Grocify Website
 
-Grocify is a simple grocery website homepage built as part of my React.js assignment.
+Grocify is a responsive grocery website homepage built using React.js and
+Tailwind CSS.
 
-The main goal of this project was to recreate a modern grocery website using React and Tailwind CSS while keeping the design responsive and interactive.
+I created this project as part of a UI recreation assignment. The main goal
+was to recreate a clean grocery website with a responsive layout that works
+on desktop, tablet, and mobile screens.
 
-## What I Built
+## Features
 
 - Responsive navigation bar
 - Mobile hamburger menu
-- Search bar
-- Wishlist and cart icons
+- Search functionality
+- Wishlist and shopping cart icons
 - Light and dark mode
 - Hero section with grocery basket image
-- Smooth scrolling navigation
-- Hover effects and animations
+- Floating up-and-down basket animation
+- Smooth hover effects
 - About section
 - Process section
 - Products section
 - Contact section
-- Responsive design for desktop, tablet and mobile
+- Responsive design for different screen sizes
+- Basic search validation
+- Error boundary for handling unexpected errors
 
 ## Technologies Used
 
 - React.js
 - Vite
 - Tailwind CSS
-- Framer Motion
-- Lucide React
 - JavaScript
+- Lucide React
+- CSS animations
+- HTML
 
+## Project Structure
+
+```text
+grocify/
+├── public/
+├── src/
+│   ├── assets/
+│   │   └── basket.png
+│   │
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── Hero.jsx
+│   │   └── ErrorBoundary.jsx
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+├── screenshots/
+│   ├── desktop.png
+│   ├── tablet.png
+│   └── mobile.png
+│
+├── package.json
+├── package-lock.json
+├── tailwind.config.js
+└── README.md
+```
 
 ## Github Link
 
