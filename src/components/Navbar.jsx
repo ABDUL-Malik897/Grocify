@@ -1,10 +1,11 @@
 import { useState } from "react"
-
-function Navbar({ darkMode, setDarkMode }) {
+import { useTheme } from "../context/ThemeContext"
+function Navbar() {
 
     const [search, setSearch] = useState("")
     const [menuOpen, setMenuOpen] = useState(false)
     const [searchError, setSearchError] = useState("")
+    const { darkMode, toggleTheme } = useTheme()
 
     const handleSearch = (event) => {
         event.preventDefault()
@@ -16,21 +17,13 @@ function Navbar({ darkMode, setDarkMode }) {
         console.log("Searching for:", search)
     }
 
-    const toggleTheme = () => {
-        setDarkMode((currentMode) => !currentMode)
-    }
-
     const toggleMenu = () => {
         setMenuOpen((isOpen) => !isOpen)
     }
 
     return (
         <nav
-            className={`sticky top-0 z-50 border-b ${
-                darkMode
-                    ? "bg-gray-900 text-white border-gray-700"
-                    : "bg-white text-gray-800 border-gray-200"
-            }`}
+            className={`sticky top-0 z-50 border-b ${darkMode ? "bg-gray-900 text-white border-gray-700" : "bg-white text-gray-800 border-gray-200"}`}
         >
             <div className="max-w-7xl mx-auto px-5 py-4">
                 <div className="flex items-center justify-between">
@@ -129,11 +122,7 @@ function Navbar({ darkMode, setDarkMode }) {
                         aria-expanded={menuOpen}
                         className="lg:hidden p-2 hover:text-orange-500 transition"
                     >
-                        {menuOpen ? (
-                            'X'
-                        ) : (
-                            <ion-icon name="menu"></ion-icon>
-                        )}
+                        {menuOpen ? ('X') : (<ion-icon name="menu"></ion-icon>)}
                     </button>
                 </div>
                 {menuOpen && (
