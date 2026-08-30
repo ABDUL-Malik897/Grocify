@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useTheme } from "../context/ThemeContext"
+import { useTheme } from "../context/useTheme"
 function Navbar() {
 
     const [search, setSearch] = useState("")

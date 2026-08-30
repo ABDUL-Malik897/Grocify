@@ -1,5 +1,6 @@
 import basketImage from "../assets/basket.png"
-import { useTheme } from "../context/ThemeContext"
+import { motion } from "framer-motion"
+import { useTheme } from "../context/useTheme"
 
 function Hero() {
 
@@ -44,10 +45,16 @@ function Hero() {
                         </a>
                     </div>
                     <div className="flex justify-center">
-                        <img
+                        <motion.img
                             src={basketImage}
                             alt="Basket of fresh fruits and vegetables"
-                            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl object-contain animate-basket"
+                            animate={{ y: [0, -15, 0] }}
+                            transition={{
+                                duration: 3,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl object-contain"
                         />
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import { describe, expect, test, vi } from "vitest"
 import App from "./App"
-import { ThemeProvider } from "./context/ThemeContext"
+import { ThemeProvider } from "./context/ThemeProvider"
 
 
 const renderApp = () => {

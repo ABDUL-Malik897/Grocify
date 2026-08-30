@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useTheme } from "./context/ThemeContext"
+import { useTheme } from "./context/useTheme"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
 
